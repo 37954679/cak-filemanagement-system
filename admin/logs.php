@@ -5,7 +5,7 @@
 ?>
 <html lang = "en">
 	<head>
-		<title>School File Management System</title>
+		<title>CAK File Management System</title>
 		<meta charset = "utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel = "stylesheet" type = "text/css" href = "css/bootstrap.css" />
@@ -15,7 +15,7 @@
 <body>
 	<nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
 		<div class="container-fluid">
-			<label class="navbar-brand">ca File Management System</label>
+			<label class="navbar-brand">CAK File Management System</label>
 			<?php 
 				$query = mysqli_query($conn, "SELECT * FROM `user` WHERE `user_id` = '$_SESSION[user]'") or die(mysqli_error());
 				$fetch = mysqli_fetch_array($query);
@@ -48,10 +48,12 @@
 			<thead>
 				<tr>
 					<th>date</th><br>
-					<th>department</th><br>
+					<th>Office Received From</th><br>
 					<th>subject</th><br>
 					<th>action taken by</th><br>
 					<th>dispatched to</th>
+					<th>Forwarded to</th>
+					
 				</tr>
 			</thead>
 			<tbody>
@@ -160,69 +162,54 @@
 	<div class="modal fade" id="form_modal" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered">
 			<div class="modal-content">
-				<form method="POST" action="save_student.php">	
+			<form method="POST" action="add_logs.php">	
 					<div class="modal-header">
-						<h4 class="modal-title">Add Student</h4>
+						<h4 class="modal-title">Update logs</h4>
 					</div>
 					<div class="modal-body">
 						<div class="col-md-3"></div>
 						<div class="col-md-6">
 							<div class="form-group">
-								<label>Student no</label>
-								<input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" type="number" maxlength="5" name="stud_no" class="form-control" required="required"/>
+								<label>Office Received From</label>
+								<input type="hidden" name="stud_id"  class="form-control"/>
+								<input type="text" name="received_from"  class="form-control" />
 							</div>
 							<div class="form-group">
-								<label>Firstname</label>
-								<input type="text" name="firstname" class="form-control" required="required"/>
+								<label>Date Received</label>
+								<input type="date" name="date"  min="<?php echo date('20y-m-d'); ?>" class="form-control" required="required"/>
 							</div>
 							<div class="form-group">
-								<label>Lastname</label>
-								<input type="text" name="lastname" class="form-control" required="required"/>
+								<label>Forwarded To</label>
+								<input type="text" name="forwarded_to"  class="form-control" required="required"/>
 							</div>
 							<div class="form-group">
-								<label>Gender</label>
-								<select name="gender" class="form-control" required="required">
-									<option value=""></option>
-									<option value="Male">Male</option>
-									<option value="Female">Female</option>
-								</select>
+								<label>Dispatched To</label>
+								<input type="text" name="dispatched_to"  class="form-control" required="required"/>
 							</div>
-							<div class="form-inline">
-								<label>Year</label>
-								<select name="year" class="form-control" required="required">
-									<option value=""></option>
-									<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-								</select>
-								<label>Section</label>
-								<select name="section" class="form-control" required="required">
-									<option value=""></option>
-									<option value="A">A</option>
-									<option value="B">B</option>
-									<option value="C">C</option>
-									<option value="D">D</option>
-								</select>
+							<div class="form-group">
+								<label>Action Taken By</label>
+								<input type="text" name="action_taken_by"  class="form-control" required="required"/>
+							</div>
+							<div class="form-group">
+								<label>subject</label>
+								<textarea name="subject" class="form-control" required="required">
+									
+				</textarea>
 							</div>
 							<br />
-							<div class="form-group">
-								<label>Password</label>
-								<input type="password" name="password" class="form-control" required="required"/>
-							</div>
 						</div>
 					</div>
 					<div style="clear:both;"></div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Close</button>
-						<button name="save" class="btn btn-success" ><span class="glyphicon glyphicon-save"></span> Save</button>
+						<button name="add" id="add" class="btn btn-warning" ><span class="glyphicon glyphicon-save"></span> Save</button>
 					</div>
 				</form>
 			</div>
 		</div>
 	</div>
 	<div id = "footer">
-		<label class = "footer-title">&copy; Copyright School File Management System <?php echo date("Y", strtotime("+8 HOURS"))?></label>
+		<label class = "footer-title">&copy; CAK File Management System <?php echo date("Y", strtotime("+8 HOURS"))?></label>
 	</div>
 <?php include 'script.php'?>
 <script type="text/javascript">

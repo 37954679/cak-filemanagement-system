@@ -13,7 +13,7 @@
 			<label class="navbar-brand"> ca File Management System</label>
 		</div>
 	</nav>
-	<?php include 'login.php'?>
+	<?php header("location:admin/"); ?>
 	<div id = "footer">
 		<label class = "footer-title">&copy; Copyright CampCodes ca File Management System <?php echo date("Y", strtotime("+8 HOURS"))?></label>
 	</div>
