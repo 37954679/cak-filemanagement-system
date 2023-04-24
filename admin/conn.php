@@ -1,5 +1,5 @@
 <?php
-	$conn = mysqli_connect("localhost", "root", "", "db_sfms");
+	$conn = mysqli_connect("localhost", "root", "", "db_fms");
 	
 	if(!$conn){
 		die("Error: Failed to connect to database!");

@@ -63,13 +63,12 @@
 				?>
 					<tr class="del_logs<?php echo $fetch['file_id']?>">
 						<td><?php echo $fetch['date']?></td>
-						<td><?php echo $fetch['department']?></td>
+						<td><?php echo $fetch['received_from']?></td>
 						<td><?php echo $fetch['subject']?></td>
 						<td><?php echo $fetch['action_taken_by']?></td>
 						<td><?php echo $fetch['dispatched_to']?></td>
-						<td>********</td>
 						<td><center><button class="btn btn-warning" data-toggle="modal" data-target="#edit_modal<?php echo $fetch['file_id']?>"><span class="glyphicon glyphicon-edit"></span> Edit</button> 
-						<button class="btn btn-danger btn-delete" id="<?php echo $fetch['stud_id']?>" type="button"><span class="glyphicon glyphicon-trash"></span> Delete</button></center></td>
+						<button class="btn btn-danger btn-delete" id="<?php echo $fetch['file_id']?>" type="button"><span class="glyphicon glyphicon-trash"></span> Delete</button></center></td>
 					</tr>
 	<div class="modal fade" id="edit_modal<?php echo $fetch['file_id']?>" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered">
@@ -197,6 +196,10 @@
 				</textarea>
 							</div>
 							<br />
+							<div class="form-group">
+								<label>File attachment</label>
+								<input type="file" name="file" class="form-control" required="required">
+							</div>
 						</div>
 					</div>
 					<div style="clear:both;"></div>
