@@ -53,7 +53,8 @@
 					<th>action taken by</th><br>
 					<th>dispatched to</th>
 					<th>Forwarded to</th>
-					
+					<th>File</th>
+					<th>Action</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -67,6 +68,8 @@
 						<td><?php echo $fetch['subject']?></td>
 						<td><?php echo $fetch['action_taken_by']?></td>
 						<td><?php echo $fetch['dispatched_to']?></td>
+						<td><?php echo $fetch['Forwarded_to']?></td>
+						<td><?php echo $fetch['file_path']?></td>
 						<td><center><button class="btn btn-warning" data-toggle="modal" data-target="#edit_modal<?php echo $fetch['file_id']?>"><span class="glyphicon glyphicon-edit"></span> Edit</button> 
 						<button class="btn btn-danger btn-delete" id="<?php echo $fetch['file_id']?>" type="button"><span class="glyphicon glyphicon-trash"></span> Delete</button></center></td>
 					</tr>
