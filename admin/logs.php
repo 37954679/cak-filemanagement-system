@@ -43,6 +43,7 @@
 		<br /><br /><br />
 		<div class="alert alert-info"><h3>Accounts / logs</h3></div> 
 		<button class="btn btn-success" data-toggle="modal" data-target="#form_modal"><span class="glyphicon glyphicon-plus"></span> Add incoming mails</button>
+		<button class="btn btn-success" data-toggle="modal" data-target="#form_modal"><span class="glyphicon glyphicon-plus"></span> Add incoming mails</button>
 		<br>
 		<table id = "table" class="table table-bordered">
 			<thead>
