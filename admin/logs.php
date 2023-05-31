@@ -165,7 +165,7 @@
 	<div class="modal fade" id="form_modal" aria-hidden="true">
 		<div class="modal-dialog modal-dialog-centered">
 			<div class="modal-content">
-			<form method="POST" action="add_logs.php">	
+			<form method="POST" action="add_logs.php" enctype="multipart/form-data">	
 					<div class="modal-header">
 						<h4 class="modal-title">Update logs</h4>
 					</div>
