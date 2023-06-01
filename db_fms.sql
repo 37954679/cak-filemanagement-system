@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Apr 24, 2023 at 08:55 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.0
+-- Host: localhost
+-- Generation Time: Jun 01, 2023 at 12:39 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -43,7 +43,7 @@ CREATE TABLE `logs` (
 --
 
 INSERT INTO `logs` (`file_id`, `date`, `Forwarded_to`, `subject`, `action_taken_by`, `dispatched_to`, `received_from`, `file_path`) VALUES
-(1, '2023-04-24', 'HR', '			Good						\r\n				', 'Mrs Katana', 'ICT', 'Finance', '');
+(2, '2023-06-01', 'Admissions', 'yes									\r\n				', 'Yes', 'Nakuru', 'Kenya', '1.png');
 
 -- --------------------------------------------------------
 
@@ -148,7 +148,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `file_id` int(23) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `file_id` int(23) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `storage`

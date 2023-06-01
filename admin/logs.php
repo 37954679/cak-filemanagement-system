@@ -42,9 +42,7 @@
 	<div id = "content">
 		<br /><br /><br />
 		<div class="alert alert-info"><h3>Accounts / logs</h3></div> 
-		<button class="btn btn-success" data-toggle="modal" data-target="#form_modal"><span class="glyphicon glyphicon-plus"></span> Add incoming mails</button>
-		<button class="btn btn-success" data-toggle="modal" data-target="#form_modal"><span class="glyphicon glyphicon-plus"></span> Add incoming mails</button>
-		<br>
+		<button class="btn btn-success" data-toggle="modal" data-target="#form_modal"><span class="glyphicon glyphicon-plus"></span> Add incoming mails</button><br>
 		<table id = "table" class="table table-bordered">
 			<thead>
 				<tr>
@@ -71,7 +69,7 @@
 						<td><?php echo $fetch['dispatched_to']?></td>
 						<td><?php echo $fetch['Forwarded_to']?></td>
 						<td><?php echo $fetch['file_path']?></td>
-						<td><center><button class="btn btn-warning" data-toggle="modal" data-target="#edit_modal<?php echo $fetch['file_id']?>"><span class="glyphicon glyphicon-edit"></span> Edit</button> 
+						<td><center><a href="<?php echo $fetch['file_path'] ?>" class="btn btn-primary" download><span class="glyphicon glyphicon-download"></span></a> 
 						<button class="btn btn-danger btn-delete" id="<?php echo $fetch['file_id']?>" type="button"><span class="glyphicon glyphicon-trash"></span> Delete</button></center></td>
 					</tr>
 	<div class="modal fade" id="edit_modal<?php echo $fetch['file_id']?>" aria-hidden="true">
@@ -209,7 +207,7 @@
 					<div style="clear:both;"></div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Close</button>
-						<button name="add" id="add" class="btn btn-warning" ><span class="glyphicon glyphicon-save"></span> Save</button>
+						<button name="add" type="submit" id="add" class="btn btn-warning" ><span class="glyphicon glyphicon-save"></span> Save</button>
 					</div>
 				</form>
 			</div>
@@ -230,9 +228,9 @@ $(document).ready(function(){
 		var id = $(this).attr('name');
 		$.ajax({
 			type: "POST",
-			url: "delete_student.php",
+			url: "file_delete.php",
 			data:{
-				stud_id: id
+				file_id: id
 			},
 			success: function(){
 				$("#modal_confirm").modal('hide');
